@@ -1,0 +1,24 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel = "stylesheet" href="{% static 'css/base.css' %}">
+</head>
+<body>
+    <header>
+        <div class="header-tags"><a class = "link" href = "{% url 'home' %}">Home</a></div>
+        <div class="header-tags"><a class = "link" href = "{% url 'add-product'%}">Add Product</a></div>
+        <div class="header-tags"><a class = "link" href = "{% url 'users_page'%}">Users</a></div>
+        {% if user.is_authenticated %}
+        <div class="header-tags"><a  class = "link" href = "{% url 'profile' user.id %}">Profile</a></div>
+        <div class="header-tags"><a  class = "link" href = "{% url 'cart' %}">Cart &#x1F6D2;</a></div>
+        {% else %}
+        <div class="header-tags"><a class = "link" href = "{% url 'login' %}">Login</a></div>
+        {% endif %}
+    </header>
+</body>
+</html>

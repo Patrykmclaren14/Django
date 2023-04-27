@@ -1,0 +1,25 @@
+{% load static %}
+<head>
+    <link rel = "stylesheet" href="{% static 'css/login.css' %}">
+</head>
+
+
+
+<body>
+    {% include 'base.html'%}
+    <main>
+        <section>
+            <h3>Name: {{product.name}}</h3>
+            <h6>Price: {{product.price}} PLN</h6>
+            <h6>Author: <a href="{% url 'profile_page' product.user.id%}">{{product.user}}</a></h6>
+            <p>{{product.description}}</p>  <br>
+            <form method="POST" action="{% url 'cart' %}">
+                {% csrf_token %}
+                <input type="hidden" name="product_id" value="{{ product.id }}">    
+                <button type="submit">Add to cart</button>
+            </form>
+        </section>
+    </main>
+    {% block content %}
+    {% endblock %}
+</body>

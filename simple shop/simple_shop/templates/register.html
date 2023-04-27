@@ -1,0 +1,31 @@
+{% load static %}
+<head>
+    <link rel = "stylesheet" href="{% static 'css/login.css' %}">
+</head>
+
+
+
+<body>
+    {% include 'base.html'%}
+    <main>
+        <section>
+            <form action="" method="POST">
+                {% if error_message %}
+                    <p class="error">{{error_message}}</p>
+                {% endif %}
+                {% csrf_token %}
+                <div class="block">Login</div>
+                <div class="block"><input type = "text" name="username"></input></div>
+                <div class="block">Email</div>
+                <div class="block"><input type = "email" name="email"></input></div>
+                <div class="block">Password</div>
+                <div class="block"><input type="password" name="password1"></input></div>
+                <div class="block">Confirm Password</div>
+                <div class="block"><input type="password" name="password2"></input></div>
+                <button>Submit</button>
+            </form>
+        </section>
+    </main>
+    {% block content %}
+    {% endblock %}
+</body>

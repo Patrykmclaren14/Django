@@ -1,0 +1,24 @@
+{% load static %}
+<head>
+    <link rel = "stylesheet" href="{% static 'css/profile.css' %}">
+</head>
+
+
+
+<body>
+    {% include 'base.html'%}
+    <main>
+        <section>
+            <form action="" method="POST">
+                {% csrf_token %}
+                <div>Name: <input type="text" name="username" value="{{ user.username }}"></div>
+                <div>Email: <input type="email" name="email" value="{{ user.email }}"></div>
+                <div>First Name: <input type="text" name="first_name" value="{{ user.first_name }}"></div>
+                <div>Last Name: <input type="text" name="last_name" value="{{ user.last_name }}"></div>
+                <div><button type="submit">Save</button></div>
+            </form>            
+        </section>
+    </main>
+    {% block content %}
+    {% endblock %}
+</body>

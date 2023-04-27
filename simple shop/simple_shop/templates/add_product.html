@@ -1,0 +1,32 @@
+{% load static %}
+<head>
+    <link rel = "stylesheet" href="{% static 'css/add_product.css' %}">
+</head>
+
+
+
+<body>
+    {% include 'base.html'%}
+    <main>
+        <section>
+            {% if user.is_authenticated %}
+                <form action="" method="POST">
+                    {% csrf_token%}
+                    <div class="block"><h1>Add your product</h1></div>
+                    <div class="block">Name:</div>
+                    <div class="block"><input type = "text" name="name"></input></div>
+                    <div class="block">Price:</div>
+                    <div class="block"><input type="text" name="price"></input></div>
+                    <div class="block">Description:</div>
+                    <div class="block"><input type="text" name="description"></input></div>
+                    <button>Submit</button>
+                </form>
+            {% else %}
+                <div class="block">You must be logged!</div>
+                <div class="block"><a href="{% url 'register' %}">Click here!</a></div>
+            {% endif %}
+        </section>
+    </main>
+    {% block content %}
+    {% endblock %}
+</body>

@@ -1,0 +1,28 @@
+{% include 'base.html' %}
+{% block content %}
+{% load static %}
+<head>
+    <link rel = "stylesheet" href="{% static 'css/home.css' %}">
+</head>
+<main>
+    <section>
+        {% for product in products %}
+        {% if message %}
+            <div class="message">{{ message }}</div>
+        {% endif %}
+            <div class = "block">
+                <h1>Name: {{product.name}}</h1>
+                <h5>Author:<a href="profile_page/{{product.user.id}}"> {{product.user}}</a></h5>
+                {% if product.price == 0 %}
+                <h3>Price: For Free</h3>
+                {% else %}
+                <h3>Price: {{product.price}} PLN</h3>
+                <h3> {{product.id}} </h3>
+                {% endif %}
+                <a href="{% url 'show_product' product.id %}">Write more</a>
+            </div>
+        {% endfor %}
+    </section>
+</main>
+
+{% endblock %}

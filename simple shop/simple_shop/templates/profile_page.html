@@ -1,0 +1,26 @@
+{% load static %}
+<head>
+    <link rel = "stylesheet" href="{% static 'css/login.css' %}">
+</head>
+
+
+
+<body>
+    {% include 'base.html'%}
+    <main>
+        <section>
+            <div class="block">{{user}}</div>
+            <div class="block">{{user.first_name}}</div>
+            <div class="block">{{user.last_name}}</div>
+            <div class="block">{{user.email}}</div>
+            <div class="block">Products:</div>
+            {% for product in products %}
+                {% if product.user == user %}
+                <div class="block"><a href="{% url 'show_product' product.id %}">{{product.name}}</a></div>
+                {% endif %}
+            {% endfor %}
+        </section>
+    </main>
+    {% block content %}
+    {% endblock %}
+</body>

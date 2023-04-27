@@ -1,0 +1,20 @@
+{% load static %}
+<head>
+    <link rel = "stylesheet" href="{% static 'css/login.css' %}">
+</head>
+
+
+
+<body>
+    {% include 'base.html'%}
+    <main>
+        <section>
+            {% for product in cart.products.all %}
+            <div class="block">{{ product.name }} {{product.price}} PLN</div>
+            {% endfor %}
+            <div class="block">Sum: {{cart_total}} PLN  </div>
+        </section>
+    </main>
+    {% block content %}
+    {% endblock %}
+</body>
