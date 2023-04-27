@@ -1,0 +1,42 @@
+{% extends 'events/base.html' %}
+
+{% block content %}
+<center>
+    <h1>Day which you choose</h1> <br>
+    {{cal | safe}}
+    <br><br>
+    <h3>Events This Month</h3>
+    {% if event_list %}
+        {% for event in event_list%}
+        <div class="card">
+            <div class="card-header">
+                {{event}}
+            </div>
+            <div class="card-body">
+              <h5 class="card-title">Venue: {{event.venue.web}}</h5>
+              <p class="card-text">    <ul>
+                
+                <li><strong>Date:</strong> {{event.event_date}}</li>
+                
+                <li><strong>Manager:</strong> {{event.manager}}</li>
+                <li><strong>Description:</strong> {{event.description}}</li>
+                <li><strong>Attendees:</strong>
+                {% for user in event.attendees.all %}
+                     {{user}},
+                {% endfor %}
+                </li>
+            </ul></p>
+            </div>
+          </div>
+        
+        
+        
+            <br/> <br>
+        {% endfor %}
+    {% else %}
+    Sory... There are no events this Month
+    {% endif %}
+    <h1>Currently day</h1><br>
+    {{current_day}}:{{current_month}}:{{current_year}}
+</center>
+{% endblock %}
