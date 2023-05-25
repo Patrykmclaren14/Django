@@ -1,0 +1,380 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: SegoeUI-SemiBold-final,Segoe UI Semibold,SegoeUI-Regular-final,Segoe UI,"Segoe UI Web (West European)",Segoe,-apple-system,BlinkMacSystemFont,Roboto,Helvetica Neue,Tahoma,Helvetica,Arial,sans-serif;;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+nav {
+    height: 5vh;
+    width: 100%;
+    background-color: #2564cf;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: white;
+    position: sticky;
+    top: 0;
+    z-index: 1;
+}
+
+.nav-block {
+    margin: 15px;
+    font-size: 15px;
+}
+
+
+.nav-block:nth-child(2){
+    width: 40vh;
+}
+
+.nav-block:nth-child(3){
+    display: flex;
+    flex-direction: row;
+    gap: 25px;
+}
+
+.block-input {
+    width: 100%;
+    height: 65%;
+    border-radius: 5px;
+    border: white;
+    padding-left: 10px;    
+}
+
+.block-input::placeholder {
+    color: black; 
+    padding-left: -20px;
+}
+
+.logout {
+    text-decoration: none;
+    color: #ffffff;
+}
+
+section {
+    width: 15%;
+    height: 95vh;
+    display: flex;
+    justify-content: center;
+    box-shadow: -4px 0px 20px rgba(0, 0, 0, 0.1);
+    position: sticky;
+    top: 5vh; /* Nowa wartość odstępu od nav */
+    z-index: 1;
+}
+
+.section-block {
+    width: 100%;
+    height: 25%;
+    margin-top: 20px;
+    font-size: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    
+}
+
+.block-info {
+    width: 85%;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    height: 10vh;
+    font-weight: 800;
+    text-decoration: none;
+    color: #292827;
+    padding-left: 1vh;
+}
+
+.block-info:nth-child(5) {
+    border-bottom: #edeceb solid 2px ;
+}
+
+.block-info:hover {
+    background-color: #eff6fc;
+}
+
+main {
+    background-color: #faf9f8;
+    width: 65%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.main-place {
+    height: 95%;
+    width: 99%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+.main-header {
+    width: 95%;
+    height: 4%;
+    display: flex;
+    justify-content: start;
+    flex-direction: row;
+    gap: 10vh;
+}
+
+.header-day {
+    font-size: 1.2rem;
+    display: flex;
+    gap: 1vh;
+    width: 90%;
+}
+
+.header-blocks {
+    display: flex;
+    gap: 10px;
+}
+
+.date {
+    width: 95%;
+    height: 4%;
+    font-size: 0.7rem;
+    font-weight: 100;
+    color: #959290;
+}
+
+.task-input {
+    width: 98%;
+    height: 12%;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    box-shadow: 1px 1px 10px 1px #edeceb;
+    border: solid 1.5px #edeceb ;
+}
+
+.input-place {
+    width: 100%;
+    height: 50%;
+    padding-left:15px;
+    border: white;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    border-bottom: solid 1px #d8d5d2;
+}
+
+.input-place::placeholder {
+    margin-left:10px
+}
+.input-place:focus {
+    outline: none;
+}
+
+.submit-place {
+    width: 98%;
+    height: 50%;
+    background-color: #faf9f8;
+    display: flex;
+    align-items: center;
+    justify-content: end;
+}
+
+.submit-task {
+    width: 5%;
+    height: 60%;
+    color: #959290;
+    background-color: white;
+    border: solid 0.5px #d8d5d2;
+    border-radius: 5px;
+}
+
+.task-place {
+    width: 98%;
+    height: 6vh;
+    box-shadow: 1px 1px 10px 1px #edeceb;
+    border: solid 1.5px #edeceb ;
+    background-color: white;
+    display: flex;
+    align-items: center;
+    margin: 10px;
+    border-radius: 10px;
+}
+
+.task-place.update {
+    text-decoration: none;
+}
+
+.task-name {
+    width: 98%;
+    font-weight: 100;
+    padding-left: 10px;
+    font-size: 0.9rem;
+    text-decoration: none;
+    color: black;
+}
+
+.task-name:hover {
+    text-decoration:underline;
+}
+
+.submit-button-place{
+    margin-left: 1vh;
+}
+
+
+.submit-button{
+    width: 1.5vh;
+    height: 1.5vh;
+    border-radius: 50vh;
+    border: solid 0.5px #000000;
+    background-color: white;
+}
+
+.submit-button:hover {
+    background-image: url('../img/checkmark.png');
+    background-size: contain;
+}
+
+aside {
+    background-color: #faf9f8;
+    width: 20%;
+    box-shadow: 4px 0px 19px rgba(0, 0, 0, 0.1);
+    height: 95vh;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    position: sticky;
+    top: 5vh; /* Nowa wartość odstępu od nav */
+    z-index: 1;
+}
+
+.aside-place {
+    width: 90%;
+    height: 98%;
+    display: flex;
+    flex-direction: column;
+    gap: 2vh;
+}
+
+.aside-block {
+    width: 100%;
+    height: 6vh;
+    border-radius: 1vh;
+    background-color: white;
+    display: flex;
+    align-items: center;
+}
+
+.aside-block:nth-child(4) {
+    width: 100%;
+    height: 12vh;
+    border-radius: 1vh;
+    background-color: rgb(255, 255, 255);
+    display: flex;
+    align-items: start;
+    flex-direction: column;
+}
+
+.aside-task-name {
+    width: 98%;
+    font-weight: 100;
+    padding-left: 10px;
+    font-size: 1.2rem;
+    color: black;
+}
+
+.checked {
+    width: 30px;
+    height: 30px;
+    background-color: white;
+    color: white;
+    border-radius: 5px;
+    border: solid 1px #2564cf;
+    text-decoration: none;
+}
+
+.checked:hover {
+    color: #2564cf;
+    border: solid 1px #2564cf;
+}
+
+.checked:active, 
+.checked:focus {
+    border: none;
+}
+
+.task-steps-input {
+    width: 100%;
+    height: 80%;
+    border: none;
+    display: flex;
+    padding-left: 15px;
+    font-size: 1rem;
+}
+
+.task-steps-button {
+    width: 20%;
+    height: 75%;
+    border: none;
+    background-color: white;
+    opacity: 0.8;
+    font-size: 2rem;
+}
+
+.task-date-input {
+    width: 100%;
+    height: 80%;
+    border: none;
+    display: flex;
+    padding-left: 15px;
+}
+
+.task-date-input:focus {
+    border: none;
+}
+
+.aside-task-text {
+    width: 20%;
+    margin-left: 15px;
+    font-size: 1rem;
+}
+
+.aside-task-upload {
+    width: 28%;
+    border: none;
+    background-color: white;
+    color: white;
+    margin-left: 15px;
+}
+
+.aside-task-button {
+    width: 30%;
+    height: 38%;
+    margin-left: 15px;
+}
+
+.task-note-input {
+    width: 95%;
+    height: 50%;
+    border: none;
+    margin-left: 15px;
+}
+
+input:focus {
+    border: none;
+    outline: none;
+    text-align: start;
+}
+.task-note-place {
+    width: 100%;
+    height: 20%;
+    display: flex;
+    justify-content: end;
+}
+
+.task-note-button {
+    width: 50%;
+    height: 100%;
+    background-color: #ffffff;
+    border: solid 0.5px black;
+    color: black;
+    border-radius: 5px;
+    margin-left: 15px;
+}

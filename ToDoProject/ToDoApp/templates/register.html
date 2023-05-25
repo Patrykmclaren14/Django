@@ -1,0 +1,24 @@
+{% load static %}
+<link rel = 'stylesheet' href = "{% static 'css/register.css' %}">
+<title>To Do</title>
+
+<body>
+    <form class="section-place" method="POST" action="">
+        {% csrf_token %}
+        <section class="section-input">
+            <div>Register   </div>
+            <div><input placeholder="Write your username" name="username"></div>
+            <div><input placeholder="Write your email" type="email" name="email"></div>
+            <div><input placeholder="Write your password" type="password" name="password1"></div>
+            <div><input placeholder="Write your password again" type="password" name="password2"></div>
+        </section>
+        <section class="section-button">
+            <button class="button-submit">CONTINUE</button>
+            {% if messages %}
+                {% for message in messages %}
+                    <div class="error-message">{{message}}</div>
+                {% endfor %}
+            {% endif %}
+        </section>
+    </form>
+</body>

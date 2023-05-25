@@ -1,0 +1,26 @@
+{% load static %}
+<link rel = 'stylesheet' href = "{% static 'css/login.css' %}">
+<title>To Do</title>
+
+<body>
+    <form class="section-place" method="POST" action="">
+        {% csrf_token %}
+        <section class="section-input">
+            <div>Login</div>
+            <div><input placeholder="Write your username" name="username"></div>
+            <div><input placeholder="Write your password" type="password" name="password"></div>
+            
+        </section>
+        <section class="section-register">
+            <a href="{% url 'register-view' %}" class="register">You don't have account? Click here</a>
+        </section>
+        <section class="section-button">
+            <button class="button-submit">CONTINUE</button>
+            {% if messages %}
+                {% for message in messages %}
+                    <div class="error-message">{{message}}</div>
+                {% endfor %}
+            {% endif %}
+        </section>
+    </form>
+</body>

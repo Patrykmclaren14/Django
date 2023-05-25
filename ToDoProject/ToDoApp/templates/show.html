@@ -1,0 +1,47 @@
+{% if user.is_authenticated %}
+{% load static %}
+
+<link rel = 'stylesheet' href = "{% static 'css/home.css' %}">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">  
+<title>To Do</title>
+
+<body>
+    <nav>
+        <div class="nav-block">To Do</div>
+        <form class="nav-block" method="GET">
+            {% csrf_token %}
+            <input class="block-input" placeholder="&#128269;">
+        </form>
+        <div class="nav-block">
+            <div class="block-logout"><a href="{% url 'logout'%}" class="logout">L</a></div>
+        </div>
+    </nav>
+    <section>
+        <div class="section-block">
+            <a href="{% url 'home' %}" class="block-info"><i>&#9788;</i> <span>My Day</span></a>
+            <a href="{% url 'important' %}"  class="block-info"><i>&#10029;</i> <span>Important</span></a>
+            <a href="{% url 'show' %}" class="block-info"><i>&#9781;</i> <span>Show</span></a>
+            <a href="{% url 'groupe'%}" class="block-info"><i>&#9993;</i> <span>Groupe</span></a>
+            <a href="{% url 'done' %}" class="block-info"><i>&#9750;</i> <span>Done</span></a>   
+        </div>
+    </section>
+    <main>
+        <div class="main-place">
+            <div class="main-header">
+                <div class="header-day"><i>&#9781;</i> <span>Show</span></div>
+            </div>
+            {% for task in tasks %}
+            {% if task.status == 'to do' %}
+            <form class="task-place" method="POST" action="{% url 'update' task.id 1%}">
+                {% csrf_token %}
+                <div class="submit-button-place"><button class="submit-button" name="update_task_important"></button></div>
+                <a href="{% url 'show-task' task.id %}" class="task-name">{{task.name}}</a> 
+            </form>
+            {% endif %}
+            {% endfor %}
+        </div>
+    </main>
+</body>
+{% else %}
+<a href="{% url 'login-view' %}">Please Log in</a>
+{% endif %}
